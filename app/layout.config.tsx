@@ -1,6 +1,5 @@
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import { FaGithub, FaXTwitter } from "react-icons/fa6";
-import { IoLogoFlickr } from "react-icons/io5";
 
 /**
  * Shared layout configurations

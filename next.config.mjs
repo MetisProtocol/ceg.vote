@@ -1,10 +1,19 @@
-import { createMDX } from 'fumadocs-mdx/next';
+import { createMDX } from "fumadocs-mdx/next";
 
 const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
-const config = {
-  reactStrictMode: true,
+const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/c/:path*",
+        destination: "https://forum.ceg.vote/c/:path*",
+        permanent: true,
+        basePath: false,
+      },
+    ];
+  },
 };
 
-export default withMDX(config);
+export default withMDX(nextConfig);
