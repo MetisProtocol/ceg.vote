@@ -1,19 +1,22 @@
-import Link from 'next/link';
+import Main from "@/components/Main";
+import Footer from "@/components/Footer";
+import type { Metadata } from "next";
 
-export default function HomePage() {
+export const metadata: Metadata = {
+  title: "Community Ecosystem Governance",
+  description: "The homepage for CEG",
+  openGraph: {
+    images: [{ url: "/assets/logo.png" }],
+  },
+};
+
+export default function Home() {
   return (
-    <main className="flex flex-1 flex-col justify-center text-center">
-      <h1 className="mb-4 text-2xl font-bold">Hello World</h1>
-      <p className="text-fd-muted-foreground">
-        You can open{' '}
-        <Link
-          href="/docs"
-          className="text-fd-foreground font-semibold underline"
-        >
-          /docs
-        </Link>{' '}
-        and see the documentation.
-      </p>
-    </main>
+    <div className="inset-0 flex min-h-screen w-full flex-col items-center justify-between bg-white bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] px-5 dark:bg-darkBg">
+      <div className="flex flex-1 items-center justify-center">
+        <Main />
+      </div>
+      <Footer />
+    </div>
   );
 }
