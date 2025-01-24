@@ -12,6 +12,12 @@ const nextConfig = {
         permanent: true,
         basePath: false,
       },
+      {
+        source: "/t/:path*",
+        destination: "https://forum.ceg.vote/t/:path*",
+        permanent: true,
+        basePath: false,
+      },
     ];
   },
 };
