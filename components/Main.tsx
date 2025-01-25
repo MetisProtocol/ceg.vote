@@ -46,7 +46,7 @@ function SocialsBlock() {
       </a>
 
       <a
-        href="https://snapshot.org/#/metislayer2.eth"
+        href="https://proposals.ceg.vote"
         target="_blank"
         rel="noopener noreferrer"
       >
