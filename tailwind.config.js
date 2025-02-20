@@ -1,7 +1,7 @@
 import { createPreset } from "fumadocs-ui/tailwind-plugin";
 
 /** @type {import('tailwindcss').Config} */
-const config = {
+export default {
   content: [
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
@@ -65,4 +65,3 @@ const config = {
     },
   },
 };
-export default config;

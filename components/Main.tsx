@@ -12,6 +12,7 @@ export default function Main() {
     <section>
       <div className="flex flex-col gap-4">
         <HeaderBlock />
+        <PodcastBlock />
         <SocialsBlock />
       </div>
     </section>
@@ -74,5 +75,24 @@ function SocialsBlock() {
         </Block>
       </Link>
     </div>
+  );
+}
+
+function PodcastBlock() {
+  return (
+    <iframe
+      title="Episode 1:  Stride, Magic Square, Exolix, and MIP-5"
+      height="300"
+      width="100%"
+      style={{
+        border: "none",
+        minWidth: "min(100%, 430px)",
+        height: "300px",
+      }}
+      data-name="pb-iframe-player"
+      src="https://www.podbean.com/player-v2/?i=48952-1806f7c-pb&from=pb6admin&square=1&share=1&download=1&rtl=0&fonts=Arial&skin=00CFFF&font-color=auto&logo_link=episode_page&btn-skin=60a0c8&size=300"
+      loading="lazy"
+      allowFullScreen={false}
+    />
   );
 }

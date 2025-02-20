@@ -1,4 +1,5 @@
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
+import Image from "next/image";
 import { FaGithub, FaXTwitter } from "react-icons/fa6";
 
 /**
@@ -12,7 +13,7 @@ export const baseOptions: BaseLayoutProps = {
   nav: {
     title: (
       <>
-        <img
+        <Image
           src="/assets/metis-logo.png"
           alt="Logo"
           width={24}

@@ -12,11 +12,13 @@
     "fumadocs-core": "^14.7.7",
     "fumadocs-mdx": "11.3.1",
     "fumadocs-ui": "^14.7.7",
+    "googleapis": "^144.0.0",
     "next": "15.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
-    "tailwind-merge": "^2.6.0"
+    "tailwind-merge": "^2.6.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/mdx": "^2.0.13",
