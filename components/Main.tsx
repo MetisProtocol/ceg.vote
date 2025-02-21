@@ -35,16 +35,12 @@ function HeaderBlock() {
 function SocialsBlock() {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <a
-        href="https://projects.ceg.vote"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <Link href="/docs/projects">
         <Block className="flex items-center justify-center gap-2 text-lg">
           <FaProjectDiagram className="h-6 w-6" />
           <span>Projects</span>
         </Block>
-      </a>
+      </Link>
 
       <a
         href="https://proposals.ceg.vote"
