@@ -77,12 +77,12 @@ function SocialsBlock() {
 function PodcastBlock() {
   return (
     <iframe
-      title="Episode 3: Transition to Optimistic Quorum"
+      title="Episode 4: Unlocking Security and Re-vote Temp Check"
       height="300"
       width="100%"
       style={{ border: "none", minWidth: "min(100%, 430px)", height: "300px;" }}
       data-name="pb-iframe-player"
-      src="https://www.podbean.com/player-v2/?i=bp6i8-183e22c-pb&from=pb6admin&square=1&share=1&download=1&rtl=0&fonts=Arial&skin=f6f6f6&font-color=auto&logo_link=episode_page&btn-skin=60a0c8&size=300"
+      src="https://www.podbean.com/player-v2/?i=4rh2g-186570f-pb&from=pb6admin&square=1&share=1&download=1&rtl=0&fonts=Arial&skin=f6f6f6&font-color=auto&logo_link=episode_page&btn-skin=60a0c8&size=300"
       loading="lazy"
     />
   );
