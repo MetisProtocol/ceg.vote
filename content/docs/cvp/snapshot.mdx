@@ -6,19 +6,18 @@ import { Callout } from "fumadocs-ui/components/callout";
 
 Voting happens on [Snapshot](https://proposals.ceg.vote)
 
-| Parameter                    | Value                                                                                                     |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------- |
-| Amount of Metis Against      | 5000 Metis                                                                                                |
-| Quorum                       | [Optimistic Quorum](https://docs.snapshot.box/snapshot-x/protocol/execution-strategies#optimistic-quorum) |
-| Minimum Requirements to Vote | 0.1 Metis                                                                                                 |
-| Voting Strategy              | Quadratic Voting                                                                                          |
-| Vote Timeline                | 5 days                                                                                                    |
-
-If an Optimisic Quorum is not met, the proposal can be adjusted and resubmitted for a revote by a Simple Quorum of 5000 Metis and 400 participating wallets.
-
 <Callout>
   The value above may change based on community feedback, any change to the
   values will be communicated to the community
 </Callout>
 
-If a vote fails, the project can submit a new proposal for a revote.
+Voting rule change was proposed and resolved in the forum post: [Governance Team Update: Transitioning from Simple Quorum to Optimistic Quorum](https://forum.ceg.vote/t/governance-team-update-transitioning-from-simple-quorum-to-optimistic-quorum/3910) and announced on the [Metis Governance X](https://x.com/MetisGovernance/status/1899964963688423629) on March 12, 2025.
+
+| Parameter                    | Value                                                                                                     |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Amount of Metis Against      | 5000 Metis                                                                                                |
+| Quorum                       | [Optimistic Quorum](https://docs.snapshot.box/snapshot-x/protocol/execution-strategies#optimistic-quorum) |
+| Minimum Requirements to Vote | 0.1 Metis                                                                                                 |
+| Vote Timeline                | 5 days                                                                                                    |
+
+If an Optimisic Quorum does not pass (5000+ Metis is voted against), the proposal can be adjusted and resubmitted for a revote. This proposal must achieve a Quorum of at least 5000 Metis and 400 participating wallets with a 80% approval rate to pass.
