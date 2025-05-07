@@ -10,10 +10,10 @@ const inter = Inter({
 
 export const metadata = createMetadata({
   title: {
-    template: "%s | Metis Docs",
-    default: "Metis Docs",
+    template: "%s | CEG",
+    default: "CEG",
   },
-  description: "The documentation for Metis L2",
+  description: "The documentation for CEG",
   metadataBase: baseUrl,
 });
 
