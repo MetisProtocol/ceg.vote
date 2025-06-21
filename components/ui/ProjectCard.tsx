@@ -25,9 +25,6 @@ export default function ProposalCard({ proposal }: { proposal: Proposal }) {
 
         <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
           <p>
-            <span className="font-medium">State:</span> {proposal.state}
-          </p>
-          <p>
             <span className="font-medium">Votes:</span> {proposal.votes}
           </p>
           <p>

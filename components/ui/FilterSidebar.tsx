@@ -30,9 +30,6 @@ export default function FilterTopBar({
     <div className="w-full mb-6">
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg font-semibold text-gray-900 dark:text-white my-0">
-            Search
-          </h2>
           <button
             onClick={() => setShowFilters(!showFilters)}
             className="lg:hidden p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"

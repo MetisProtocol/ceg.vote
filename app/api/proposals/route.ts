@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 const GRAPHQL_ENDPOINT = "https://hub.snapshot.org/graphql";
-const DateStrategyChange = 1704992400;
+const DateStrategyChange = 1741737600;
 
 interface Proposal {
   id: string;
@@ -26,7 +26,7 @@ async function fetchProposals(): Promise<Proposal[]> {
         skip: 0,
         where: {
           space_in: ["metislayer2.eth"],
-          flagged: false,
+          labels_in: "f504ebf4"
         },
         orderBy: "created",
         orderDirection: desc
@@ -66,36 +66,22 @@ async function fetchProposals(): Promise<Proposal[]> {
 }
 
 function processProposalData(proposals: Proposal[]): Proposal[] {
-  const filteredProposals = proposals.filter(
-    (proposal) =>
-      proposal.title.includes("Ecosystem Proposal") ||
-      proposal.title.includes("CVP Proposal") ||
-      proposal.title.includes("CEG Program")
-  );
-
-  return filteredProposals.map((proposal) => {
+  return proposals.map((proposal) => {
     const scores_total = proposal.scores_total || 1;
     const score = proposal.scores?.[0] || 0;
 
     let approved = false;
 
     // Determine approval status
-    if (proposal.start > DateStrategyChange) {
-      if (
-        proposal.title.includes("Infrastructure - LST") ||
-        proposal.title.includes("Infrastructure - LSD")
-      ) {
-        if (score >= 50000 && proposal.votes >= 500) {
-          approved = true;
-        }
-      } else if (score >= 10000 && proposal.votes >= 500) {
+    if (proposal.end < DateStrategyChange) {
+      if (score >= 10000 && proposal.votes >= 500) {
         approved = true;
       }
     } else {
-      approved = true;
+      if (proposal.scores[2] < 5000) {
+        approved = true;
+      }
     }
-
-    proposal.title = cleanProjectName(proposal.title);
 
     return {
       ...proposal,
@@ -104,62 +90,6 @@ function processProposalData(proposals: Proposal[]): Proposal[] {
       yes: ((score * 100) / scores_total).toFixed(2),
     };
   });
-}
-
-function cleanProjectName(name: string): string {
-  // Check for the "through" pattern first
-  const throughMatch = name.match(
-    /through\s+([^,]+?)(?:\s+(?:with|on|to|for|in|at|Chain|Protocol|Platform|Integration).*)?$/i
-  );
-  if (throughMatch) {
-    return throughMatch[1].trim();
-  }
-
-  // Remove specific prefixes
-  let cleaned = name
-    .replace(
-      /^(?:Ecosystem Proposal|CVP Proposal|CVP vote|CVP Episode \d+|May CVP vote week \d+|April CVP vote Part \d+)[:\s-]+/i,
-      ""
-    )
-    .replace(/^(?:Metis CEG Program|Temperature Check)[:\s-]+/i, "")
-    .replace(/^for\s+/, "")
-    .replace(/^(?:The|A)\s+/, "");
-
-  // Remove specific suffixes and extra information
-  cleaned = cleaned
-    .replace(/\s*(?:\(.*|\|.*|<.*|–.*|x\s*Metis.*|-\s*.*)\s*$/, "")
-    .replace(/\s*[-—]\s*.*$/, "")
-    .replace(/\s*revote\s*$/i, "")
-    .replace(/^.*?:\s*/, "")
-    .replace(/,.*$/, "")
-    .replace(/\s+in\s+.*$/i, "")
-    .replace(/\s+on\s+.*$/i, "")
-    .replace(/\s+to\s+.*$/i, "")
-    .replace(/\s+at\s+.*$/i, "");
-
-  // Remove common suffixes
-  const suffixes = [
-    "Integration",
-    "Platform",
-    "Protocol",
-    "Chain",
-    "Metis",
-    "GameFi",
-    "with",
-    "on",
-    "for",
-    "to",
-    "The",
-    "the",
-  ];
-
-  for (const suffix of suffixes) {
-    const regex = new RegExp(`\\s+${suffix}\\s+.*$`, "i");
-    cleaned = cleaned.replace(regex, "");
-  }
-
-  // Final cleanup
-  return cleaned.replace(/\s+/g, " ").trim();
 }
 
 // Export HTTP method handlers
