@@ -2,6 +2,9 @@ import Main from "@/components/Main";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 
+// Re-render at most every 10 minutes so the latest proposals stay current.
+export const revalidate = 600;
+
 export const metadata: Metadata = {
   title: "Community Ecosystem Governance",
   description: "The homepage for CEG",

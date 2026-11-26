@@ -1,4 +1,5 @@
 import Block from "@/components/ui/block";
+import LatestProposals from "@/components/LatestProposals";
 import Link from "next/link";
 import { FaProjectDiagram } from "react-icons/fa";
 import { MdHowToVote } from "react-icons/md";
@@ -12,7 +13,7 @@ export default function Main() {
     <section>
       <div className="flex flex-col gap-4">
         <HeaderBlock />
-        <PodcastBlock />
+        <LatestProposals />
         <SocialsBlock />
       </div>
     </section>
@@ -74,16 +75,3 @@ function SocialsBlock() {
   );
 }
 
-function PodcastBlock() {
-  return (
-    <iframe
-      title="Episode 5: Stride's Health Revolution & Futuris' Web3 Job Market"
-      height="300"
-      width="100%"
-      style={{ border: "none", minWidth: "min(100%, 430px)", height: "300px;" }}
-      data-name="pb-iframe-player"
-      src="https://www.podbean.com/player-v2/?i=c2ctu-186b4c8-pb&from=pb6admin&square=1&share=1&download=1&rtl=0&fonts=Arial&skin=f6f6f6&font-color=&logo_link=episode_page&btn-skin=60a0c8&size=300"
-      loading="lazy"
-    />
-  );
-}
